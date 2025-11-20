@@ -58,6 +58,13 @@ def build_site():
     with open("_layouts/default.html", "r", encoding="utf-8") as f:
         layout = f.read()
         
+    # Inject Google Fonts link for Noto Serif SC (robust mobile serif support)
+    font_link = '<link rel="preconnect" href="https://fonts.googleapis.com">\n' \
+                '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' \
+                '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">'
+    
+    layout = layout.replace('</head>', f'{font_link}\n</head>')
+    
     # Simple template replacement
     # Remove Liquid tags if any remain (I used {{ content }} and {{ site.title }})
     # Note: relative_url filter in layout needs handling
