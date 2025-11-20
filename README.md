@@ -1,4 +1,4 @@
-# 减五度 诗 (Minus Fifth Poems)
+# 减五度 诗 (Poems by Quinta Diminuita)
 
 This is a static site for the poetry collection "减五度 诗".
 
