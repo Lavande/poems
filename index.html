@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<section class="cover">
+  <h1 class="site-title">减五度 诗</h1>
+  <p class="site-subtitle">Poetry Collection</p>
+</section>
+
+<nav class="toc">
+  <h2>目录</h2>
+  <ul>
+    {% for poem in site.data.poems %}
+      <li><a href="#poem-{{ forloop.index }}">{{ poem.title }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<main class="poems-container">
+  {% for poem in site.data.poems %}
+    <article id="poem-{{ forloop.index }}" class="poem">
+      <header class="poem-header">
+        <h2 class="poem-title">{{ poem.title }}</h2>
+      </header>
+      <div class="poem-content">{{ poem.content }}</div>
+      <footer class="poem-footer">
+        <span class="poem-date">{{ poem.date }}</span>
+      </footer>
+    </article>
+  {% endfor %}
+</main>

@@ -1,0 +1,8 @@
+_site/
+.DS_Store
+__pycache__/
+*.pyc
+vendor/
+.bundle/
+Gemfile.lock
+archive/

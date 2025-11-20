@@ -1,0 +1,190 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Songti SC", "Noto Serif SC", "SimSun", Georgia, serif;
+  background-color: #f4f1ea; /* Old paper color */
+  color: #2c2c2c;
+  line-height: 1.6;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Noise Texture */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cover */
+.cover {
+  height: 90vh;
+  display: flex;
+  flex-direction: row; /* Standard row */
+  align-items: center; /* Vertical center */
+  justify-content: flex-end; /* Right align */
+  padding-right: 10vw; /* Spacing from right edge */
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 60px;
+}
+
+.site-title {
+  font-size: 4rem;
+  font-weight: normal;
+  letter-spacing: 0.4em;
+  margin-right: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* TOC */
+.toc {
+  margin-bottom: 100px;
+  padding: 40px;
+  background-color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.02);
+}
+
+.toc h2 {
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+.toc ul {
+  list-style: none;
+  column-count: 3;
+  column-gap: 60px;
+}
+
+.toc li {
+  margin-bottom: 10px;
+}
+
+.toc a {
+  text-decoration: none;
+  color: #444;
+  border-bottom: 1px dotted #aaa;
+  transition: color 0.2s;
+}
+
+.toc a:hover {
+  color: #000;
+  border-bottom-style: solid;
+}
+
+/* Poem */
+.poem {
+  margin-bottom: 120px;
+  padding-top: 40px; /* For anchor offset if needed, though margin works */
+  page-break-inside: avoid;
+}
+
+.poem-header {
+  margin-bottom: 30px;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.poem-title {
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+.poem-content {
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  font-size: 1.1rem;
+  line-height: 2;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  /* Sometimes poems are centered, but usually left aligned looks better for verses unless they are concrete poetry */
+  /* Given the text file has no specific indentation for centering, left is safer. */
+  /* However, for a "book" feel, sometimes a slight padding-left is nice. */
+}
+
+.poem-footer {
+  text-align: left;
+  margin-top: 20px;
+  font-style: italic;
+  color: #777;
+  font-size: 0.9rem;
+  padding: 0 20px;
+}
+
+/* Back to TOC */
+.back-to-toc {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.1);
+  color: #444;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background 0.3s, color 0.3s;
+  z-index: 100;
+}
+
+.back-to-toc:hover {
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 2.5rem;
+  }
+  
+  .toc ul {
+    column-count: 1;
+  }
+  
+  .site-title {
+    font-size: 3rem;
+    margin-right: 0;
+  }
+  
+  .poem-content {
+    font-size: 1rem;
+    /* Keep padding consistent with header */
+  }
+  
+  .container {
+    padding: 0 30px;
+  }
+}

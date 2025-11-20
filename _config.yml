@@ -1,0 +1,12 @@
+title: "减五度 诗"
+description: "Poetry Collection"
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: null
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - archive
+  - scripts
+  - README.md
