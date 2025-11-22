@@ -9,8 +9,8 @@ def parse_poems(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
-    # Regex for date: Starts with year 20xx, followed by dot or space
-    date_pattern = re.compile(r'^\s*20\d{2}[.\s].*$')
+    # Regex for date: Starts with year 20xx, followed by dot, space, or '年'
+    date_pattern = re.compile(r'^\s*20\d{2}[.\s年].*$')
 
     for line in lines:
         # Check if line is a date line
